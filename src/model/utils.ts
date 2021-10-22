@@ -14,11 +14,7 @@ export function formatOutput<T>(items: T[], numAfftected?: number, ok?: boolean)
 }
 
 export function convertToResult<T>(document: T | T[], ok?: boolean): ModelResult<T> {
-    if (Object.keys(document).length === 0) {
-        return formatOutput([], 0, false);
-    } else {
-        return formatOutput(convertToArray<T>(document), undefined, ok);
-    }
+    return formatOutput(convertToArray<T>(document), undefined, ok);
 }
 
 export function createDeleteResult(numAffected: number, ok?: boolean): ModelResult<never> {
